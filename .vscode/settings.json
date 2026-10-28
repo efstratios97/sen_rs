@@ -1,0 +1,48 @@
+{
+  // --- RUST LANGUAGE SPECIFIC SETTINGS ---
+  "[rust]": {
+    // Sets rust-analyzer as your default formatter
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    // Automatically formats your code every time you save a file
+    "editor.formatOnSave": true,
+    // Standard indent for Rust is 4 spaces
+    "editor.tabSize": 4,
+    // Insert spaces instead of hard tabs
+    "editor.insertSpaces": true
+  },
+
+  // --- RUST-ANALYZER EXTENSION CORE SETTINGS ---
+  // Replaces standard 'cargo check' with 'cargo clippy' for much stricter linting warnings
+  "rust-analyzer.check.command": "clippy",
+  
+  // Runs diagnostics across the entire workspace instead of just the open files
+  "rust-analyzer.check.allTargets": true,
+
+  // --- PERFORMANCE & BUILD SETTINGS ---
+  // Speeds up rust-analyzer by utilizing a dedicated target folder for the analyzer process.
+  // This prevents it from locking your terminal build files and causing "waiting for file lock" blocks.
+  "rust-analyzer.cargo.targetDir": true,
+
+  // Automatically fetches and caches documentation for your external crate dependencies
+  "rust-analyzer.cargo.buildScripts.enable": true,
+  "rust-analyzer.procMacro.enable": true,
+
+  // --- INLAY HINTS (IN-LINE CODE HELPERS) ---
+  // Toggles the visibility of inferred types, parameter names, and chaining helpers
+  "rust-analyzer.inlayHints.typeHints.enable": true,
+  "rust-analyzer.inlayHints.parameterHints.enable": true,
+  "rust-analyzer.inlayHints.chainingHints.enable": true,
+  "rust-analyzer.inlayHints.closingBraceHints.enable": true,
+  // Renders the hints in a subtle, compact style
+  "rust-analyzer.inlayHints.renderColons": true,
+
+  // --- VS CODE FILE MANAGEMENT & CLEANUP ---
+  // Excludes your massive /target build folders from global search indexes to prevent lagging
+  "search.exclude": {
+    "**/target": true
+  },
+  // Hides target files from the visual file explorer tree view if desired (Optional)
+  "files.exclude": {
+    "**/target": false 
+  }
+}
